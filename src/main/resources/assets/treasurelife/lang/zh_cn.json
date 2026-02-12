@@ -1,0 +1,17 @@
+{
+  "itemGroup.treasurelife": "TreasureLife",
+  "item.treasurelife.heart": "心",
+  "item.treasurelife.heart.desc": "右键获得一条命",
+  "commands.treasurelife.lives_self": "你的命: %s",
+  "commands.treasurelife.lives_other": "%s 的命: %s",
+  "commands.treasurelife.set": "已将 %s 的命设置为 %s",
+  "commands.treasurelife.add": "已为 %s 增加 %s 条命 (总计: %s)",
+  "commands.treasurelife.remove": "已为 %s 减少 %s 条命 (总计: %s)",
+  "commands.treasurelife.give": "已给予 %s %s 个心",
+  "treasurelife.lives_status": "你还有 %s 条命",
+  "treasurelife.life_gained": "你获得了一条命！总计: %s",
+  "treasurelife.no_lives": "你没有命了！你现在处于旁观者模式。",
+  "treasurelife.max_lives": "你已达到最大命数！",
+  "treasurelife.daily_claim": "你领取了今日的命！总计: %s",
+  "treasurelife.death_lost_life": "你死了！失去 1 条命。剩余: %s"
+}

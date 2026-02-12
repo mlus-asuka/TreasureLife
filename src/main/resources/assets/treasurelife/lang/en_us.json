@@ -1,0 +1,17 @@
+{
+  "itemGroup.treasurelife": "TreasureLife",
+  "item.treasurelife.heart": "Heart",
+  "item.treasurelife.heart.desc": "Right click to gain a life",
+  "commands.treasurelife.lives_self": "Your lives: %s",
+  "commands.treasurelife.lives_other": "%s's lives: %s",
+  "commands.treasurelife.set": "Set %s's lives to %s",
+  "commands.treasurelife.add": "Added %s lives to %s (Total: %s)",
+  "commands.treasurelife.remove": "Removed %s lives from %s (Total: %s)",
+  "commands.treasurelife.give": "Gave %s heart(s) to %s",
+  "treasurelife.lives_status": "You have %s lives",
+  "treasurelife.life_gained": "You gained a life! Total: %s",
+  "treasurelife.no_lives": "You have no lives! You are now in spectator mode.",
+  "treasurelife.max_lives": "You have reached maximum lives!",
+  "treasurelife.daily_claim": "You claimed your daily life! Total: %s",
+  "treasurelife.death_lost_life": "You died! Lost 1 life. Remaining: %s"
+}
