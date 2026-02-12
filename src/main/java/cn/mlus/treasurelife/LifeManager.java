@@ -41,11 +41,15 @@ public class LifeManager {
     }
 
     public static boolean addLife(Player player) {
-        int currentLives = getLives(player);
-        if (currentLives >= Config.maxLives) {
-            return false; // Already at max
+        if(player.isSpectator()){
+            int currentLives = getLives(player);
+            if (currentLives >= Config.maxLives) {
+                return false; // Already at max
+            }
+            setLives(player, currentLives + 1);
+        }else {
+            player.addItem(Treasurelife.HEART.get().getDefaultInstance());
         }
-        setLives(player, currentLives + 1);
         return true;
     }
 
