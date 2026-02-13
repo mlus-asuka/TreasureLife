@@ -1,5 +1,6 @@
 package cn.mlus.treasurelife;
 
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -73,8 +74,8 @@ public class PlayerEvents {
 
         if (originalPlayer instanceof ServerPlayer && newPlayer instanceof ServerPlayer) {
             // Manually copy lives data from original player to new player
-            net.minecraft.nbt.CompoundTag originalData = originalPlayer.getPersistentData();
-            net.minecraft.nbt.CompoundTag newData = newPlayer.getPersistentData();
+            CompoundTag originalData = originalPlayer.getPersistentData();
+            CompoundTag newData = newPlayer.getPersistentData();
 
             if (originalData.contains("treasurelife:lives")) {
                 newData.putInt("treasurelife:lives", originalData.getInt("treasurelife:lives"));

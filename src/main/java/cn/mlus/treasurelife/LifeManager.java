@@ -3,6 +3,7 @@ package cn.mlus.treasurelife;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameType;
 
 import java.time.LocalDate;
@@ -41,15 +42,11 @@ public class LifeManager {
     }
 
     public static boolean addLife(Player player) {
-        if(player.isSpectator()){
-            int currentLives = getLives(player);
-            if (currentLives >= Config.maxLives) {
-                return false; // Already at max
-            }
-            setLives(player, currentLives + 1);
-        }else {
-            player.addItem(Treasurelife.HEART.get().getDefaultInstance());
+        int currentLives = getLives(player);
+        if (currentLives >= Config.maxLives) {
+            return false;
         }
+        setLives(player, currentLives + 1);
         return true;
     }
 
@@ -80,10 +77,18 @@ public class LifeManager {
 
     public static void claimDailyLife(Player player) {
         if (canClaimDailyLife(player)) {
-            if (addLife(player)) {
-                CompoundTag data = player.getPersistentData();
-                data.putString(LAST_CLAIM_DATE_KEY, LocalDate.now().format(DATE_FORMATTER));
+            int claimAmount = Config.dailyClaimAmount;
+            if (player.isSpectator()) {
+                for (int i = 0; i < claimAmount; i++) {
+                    if (!addLife(player)) {
+                        break;
+                    }
+                }
+            } else {
+                player.addItem(new ItemStack(Treasurelife.HEART.get(),claimAmount));
             }
+            CompoundTag data = player.getPersistentData();
+            data.putString(LAST_CLAIM_DATE_KEY, LocalDate.now().format(DATE_FORMATTER));
         }
     }
 
